@@ -23,19 +23,24 @@ namespace MockingUnitTestsDemoApp.Impl.Services
             _leagueRepo = leagueRepo;
         }
 
-        public async Task<List<Player>> GetForLeague(int leagueID)
+        public Player GetByID(int id)
         {
-            var isValidLeague = await _leagueRepo.IsValid(leagueID);
+            return _playerRepo.GetByID(id);
+        }
+
+        public List<Player> GetForLeague(int leagueID)
+        {
+            var isValidLeague = _leagueRepo.IsValid(leagueID);
             if (!isValidLeague)
                 return new List<Player>();
 
             List<Player> players = new List<Player>();
 
-            var teams = await _teamRepo.GetForLeague(leagueID);
+            var teams = _teamRepo.GetForLeague(leagueID);
 
             foreach(var team in teams)
             {
-                players.AddRange(await _playerRepo.GetForTeam(team.ID));
+                players.AddRange(_playerRepo.GetForTeam(team.ID));
             }
 
             return players;

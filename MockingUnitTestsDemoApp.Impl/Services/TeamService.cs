@@ -21,13 +21,13 @@ namespace MockingUnitTestsDemoApp.Impl.Services
             _leagueRepo = leagueRepo;
         }
 
-        public async Task<List<Team>> Search(TeamSearch search)
+        public List<Team> Search(TeamSearch search)
         {
-            var isValidLeague = await _leagueRepo.IsValid(search.LeagueID);
+            var isValidLeague = _leagueRepo.IsValid(search.LeagueID);
             if (!isValidLeague)
                 return new List<Team>();
 
-            var allTeams = await _teamRepo.GetForLeague(search.LeagueID);
+            var allTeams = _teamRepo.GetForLeague(search.LeagueID);
 
             if(search.Direction == Enums.SearchDateDirection.OlderThan)
                 return allTeams.Where(x => x.FoundingDate <= search.FoundingDate).ToList();

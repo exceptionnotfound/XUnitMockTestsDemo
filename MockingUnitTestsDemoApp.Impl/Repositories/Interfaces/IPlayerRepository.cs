@@ -8,7 +8,7 @@ namespace MockingUnitTestsDemoApp.Impl.Repositories.Interfaces
 {
     public interface IPlayerRepository
     {
-        Task<Player> GetByID(int id);
-        Task<List<Player>> GetForTeam(int id);
+        Player GetByID(int id);
+        List<Player> GetForTeam(int id);
     }
 }

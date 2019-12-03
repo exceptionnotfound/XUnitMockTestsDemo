@@ -8,6 +8,8 @@ namespace MockingUnitTestsDemoApp.Impl.Services.Interfaces
 {
     public interface IPlayerService
     {
-        Task<List<Player>> GetForLeague(int leagueID);
+        Player GetByID(int id);
+
+        List<Player> GetForLeague(int leagueID);
     }
 }

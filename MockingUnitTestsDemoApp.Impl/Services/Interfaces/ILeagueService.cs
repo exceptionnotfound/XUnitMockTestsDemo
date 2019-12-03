@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MockingUnitTestsDemoApp.Impl.Services.Interfaces
 {
-    public interface ITeamService
+    public interface ILeagueService
     {
-        List<Team> Search(TeamSearch search);
+        bool IsValid(int id);
+
+        List<League> GetAll();
     }
 }

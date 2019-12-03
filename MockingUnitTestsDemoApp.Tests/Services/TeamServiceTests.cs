@@ -14,7 +14,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
     public class TeamServiceTests
     {
         [Fact]
-        public async Task TeamService_Search_OlderThan_Valid()
+        public void TeamService_Search_OlderThan_Valid()
         {
             var mockTeams = GetMockTeams();
 
@@ -31,7 +31,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             };
 
             //Act
-            var results = await teamService.Search(searchParams);
+            var results = teamService.Search(searchParams);
 
             Assert.NotEmpty(results);
             mockLeagueRepo.VerifyIsValid(Times.Once());
@@ -39,7 +39,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public async Task TeamService_Search_NewerThan_Valid()
+        public void TeamService_Search_NewerThan_Valid()
         {
             var mockTeams = GetMockTeams();
 
@@ -56,7 +56,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             };
 
             //Act
-            var results = await teamService.Search(searchParams);
+            var results = teamService.Search(searchParams);
 
             Assert.NotEmpty(results);
             mockLeagueRepo.VerifyIsValid(Times.Once());
@@ -64,7 +64,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public async Task TeamService_Search_OlderThan_Invalid()
+        public void TeamService_Search_OlderThan_Invalid()
         {
             var mockTeams = GetMockTeams();
 
@@ -81,7 +81,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             };
 
             //Act
-            var results = await teamService.Search(searchParams);
+            var results = teamService.Search(searchParams);
 
             Assert.Empty(results);
             mockLeagueRepo.VerifyIsValid(Times.Once());
@@ -89,7 +89,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public async Task TeamService_Search_NewerThan_Invalid()
+        public void TeamService_Search_NewerThan_Invalid()
         {
             var mockTeams = GetMockTeams();
 
@@ -106,7 +106,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             };
 
             //Act
-            var results = await teamService.Search(searchParams);
+            var results = teamService.Search(searchParams);
 
             Assert.Empty(results);
             mockLeagueRepo.VerifyIsValid(Times.Once());
@@ -114,7 +114,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public async Task TeamService_Search_InvalidLeague()
+        public void TeamService_Search_InvalidLeague()
         {
             var mockTeams = GetMockTeams();
 
@@ -131,7 +131,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             };
 
             //Act
-            var results = await teamService.Search(searchParams);
+            var results = teamService.Search(searchParams);
 
             Assert.Empty(results);
             mockLeagueRepo.VerifyIsValid(Times.Once());

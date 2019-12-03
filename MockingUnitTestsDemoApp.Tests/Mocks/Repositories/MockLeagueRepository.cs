@@ -11,7 +11,7 @@ namespace MockingUnitTestsDemoApp.Tests.Mocks.Repositories
         public MockLeagueRepository MockIsValid(bool result)
         {
             Setup(x => x.IsValid(It.IsAny<int>()))
-                .ReturnsAsync(result);
+                .Returns(result);
 
             return this;
         }

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MockingUnitTestsDemoApp.Impl\MockingUnitTestsDemoApp.Impl.csproj" />
+    <ProjectReference Include="..\MockingUnitTestsDemoApp\MockingUnitTestsDemoApp.csproj" />
   </ItemGroup>
 
 </Project>

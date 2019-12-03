@@ -13,7 +13,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
     public class PlayerServiceTests
     {
         [Fact]
-        public async Task PlayerService_GetAllPlayers_ValidCompleteLeague()
+        public void PlayerService_GetAllPlayers_ValidCompleteLeague()
         {
             //Arrange
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(true);
@@ -43,7 +43,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
                                                   mockLeagueRepo.Object);
 
             //Act
-            var allPlayers = await playerService.GetForLeague(1);
+            var allPlayers = playerService.GetForLeague(1);
 
             //Assert
             Assert.NotEmpty(allPlayers);
@@ -53,7 +53,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public async Task PlayerService_GetAllPlayers_ValidLeagueNoPlayers()
+        public void PlayerService_GetAllPlayers_ValidLeagueNoPlayers()
         {
             //Arrange
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(true);
@@ -75,7 +75,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
                                                   mockLeagueRepo.Object);
 
             //Act
-            var allPlayers = await playerService.GetForLeague(1);
+            var allPlayers = playerService.GetForLeague(1);
 
             //Assert
             Assert.Empty(allPlayers);
@@ -85,7 +85,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public async Task PlayerService_GetAllPlayers_ValidLeagueNoTeams()
+        public void PlayerService_GetAllPlayers_ValidLeagueNoTeams()
         {
             //Arrange
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(true);
@@ -97,7 +97,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
                                                   mockLeagueRepo.Object);
 
             //Act
-            var allPlayers = await playerService.GetForLeague(1);
+            var allPlayers = playerService.GetForLeague(1);
 
             //Assert
             Assert.Empty(allPlayers);
@@ -107,7 +107,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public async Task PlayerService_GetAllPlayers_InvalidLeague()
+        public void PlayerService_GetAllPlayers_InvalidLeague()
         {
             //Arrange
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(false);
@@ -117,7 +117,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
                                                   mockLeagueRepo.Object);
 
             //Act
-            var allPlayers = await playerService.GetForLeague(1);
+            var allPlayers = playerService.GetForLeague(1);
 
             //Assert
             Assert.Empty(allPlayers);

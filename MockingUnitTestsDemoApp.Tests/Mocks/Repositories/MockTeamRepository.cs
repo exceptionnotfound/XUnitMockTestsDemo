@@ -12,7 +12,7 @@ namespace MockingUnitTestsDemoApp.Tests.Mocks.Repositories
         public MockTeamRepository MockGetByID(Team result)
         {
             Setup(x => x.GetByID(It.IsAny<int>()))
-                .ReturnsAsync(result);
+                .Returns(result);
 
             return this;
         }
@@ -20,7 +20,7 @@ namespace MockingUnitTestsDemoApp.Tests.Mocks.Repositories
         public MockTeamRepository MockGetForLeague(List<Team> results)
         {
             Setup(x => x.GetForLeague(It.IsAny<int>()))
-                .ReturnsAsync(results);
+                .Returns(results);
 
             return this;
         }

@@ -9,12 +9,12 @@ namespace MockingUnitTestsDemoApp.Impl.Repositories
 {
     public class PlayerRepository : IPlayerRepository
     {
-        public Task<Player> GetByID(int id)
+        public Player GetByID(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Player>> GetForTeam(int id)
+        public List<Player> GetForTeam(int id)
         {
             throw new NotImplementedException();
         }

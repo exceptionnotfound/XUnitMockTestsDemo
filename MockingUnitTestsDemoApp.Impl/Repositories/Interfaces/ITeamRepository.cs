@@ -8,7 +8,7 @@ namespace MockingUnitTestsDemoApp.Impl.Repositories.Interfaces
 {
     public interface ITeamRepository
     {
-        Task<Team> GetByID(int id);
-        Task<List<Team>> GetForLeague(int leagueID);
+        Team GetByID(int id);
+        List<Team> GetForLeague(int leagueID);
     }
 }
