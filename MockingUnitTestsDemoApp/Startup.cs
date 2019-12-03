@@ -30,7 +30,7 @@ namespace MockingUnitTestsDemoApp
             services.AddTransient<ILeagueRepository, LeagueRepository>();
             services.AddTransient<ITeamRepository, TeamRepository>();
             services.AddTransient<IPlayerRepository, PlayerRepository>();
-            services.AddTransient<ILeagueService, LeagueService>();
+            services.AddTransient<IPlayerService, PlayerService>();
             services.AddControllersWithViews();
         }
 

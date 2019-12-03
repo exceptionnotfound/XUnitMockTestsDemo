@@ -9,5 +9,6 @@ namespace MockingUnitTestsDemoApp.Impl.Repositories.Interfaces
     public interface ILeagueRepository
     {
         Task<League> GetByID(int id);
+        Task<bool> IsValid(int leagueID);
     }
 }

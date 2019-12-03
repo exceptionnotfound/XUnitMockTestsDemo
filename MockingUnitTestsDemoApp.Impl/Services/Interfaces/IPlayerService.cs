@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MockingUnitTestsDemoApp.Impl.Services.Interfaces
 {
-    public interface ILeagueService
+    public interface IPlayerService
     {
-        Task<List<Player>> GetAllPlayers(int leagueID);
+        Task<List<Player>> GetForLeague(int leagueID);
     }
 }

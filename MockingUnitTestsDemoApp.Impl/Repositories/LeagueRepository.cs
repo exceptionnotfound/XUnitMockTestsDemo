@@ -13,5 +13,10 @@ namespace MockingUnitTestsDemoApp.Impl.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public Task<bool> IsValid(int leagueID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
