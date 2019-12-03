@@ -13,11 +13,8 @@ namespace MockingUnitTestsDemoApp.Tests.Services
 {
     public class TeamServiceTests
     {
-        [Theory]
-        [InlineData(2019, 1, 1)]
-        [InlineData(1995, 1, 1)]
-        [InlineData(1971, 1, 1)]
-        public async Task TeamService_Search_OlderThan_Valid(int year, int month, int day)
+        [Fact]
+        public async Task TeamService_Search_OlderThan_Valid()
         {
             var mockTeams = GetMockTeams();
 
@@ -29,7 +26,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             var searchParams = new TeamSearch()
             {
                 LeagueID = 1,
-                FoundingDate = new DateTime(year, month, day),
+                FoundingDate = new DateTime(2013, 1, 1),
                 Direction = SearchDateDirection.OlderThan
             };
 
@@ -41,11 +38,8 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             mockTeamRepo.VerifyGetForLeague(Times.Once());
         }
 
-        [Theory]
-        [InlineData(1969, 1, 1)]
-        [InlineData(1995, 1, 1)]
-        [InlineData(2011, 1, 1)]
-        public async Task TeamService_Search_NewerThan_Valid(int year, int month, int day)
+        [Fact]
+        public async Task TeamService_Search_NewerThan_Valid()
         {
             var mockTeams = GetMockTeams();
 
@@ -57,7 +51,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             var searchParams = new TeamSearch()
             {
                 LeagueID = 1,
-                FoundingDate = new DateTime(year, month, day),
+                FoundingDate = new DateTime(1969, 1, 1),
                 Direction = SearchDateDirection.NewerThan
             };
 
@@ -69,10 +63,8 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             mockTeamRepo.VerifyGetForLeague(Times.Once());
         }
 
-        [Theory]
-        [InlineData(1969, 1, 1)]
-        [InlineData(1933, 1, 1)]
-        public async Task TeamService_Search_OlderThan_Invalid(int year, int month, int day)
+        [Fact]
+        public async Task TeamService_Search_OlderThan_Invalid()
         {
             var mockTeams = GetMockTeams();
 
@@ -84,7 +76,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             var searchParams = new TeamSearch()
             {
                 LeagueID = 1,
-                FoundingDate = new DateTime(year, month, day),
+                FoundingDate = new DateTime(1966, 1, 1),
                 Direction = SearchDateDirection.OlderThan
             };
 
@@ -96,10 +88,8 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             mockTeamRepo.VerifyGetForLeague(Times.Once());
         }
 
-        [Theory]
-        [InlineData(2013, 1, 1)]
-        [InlineData(2017, 1, 1)]
-        public async Task TeamService_Search_NewerThan_Invalid(int year, int month, int day)
+        [Fact]
+        public async Task TeamService_Search_NewerThan_Invalid()
         {
             var mockTeams = GetMockTeams();
 
@@ -111,7 +101,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             var searchParams = new TeamSearch()
             {
                 LeagueID = 1,
-                FoundingDate = new DateTime(year, month, day),
+                FoundingDate = new DateTime(2017, 1, 1),
                 Direction = SearchDateDirection.NewerThan
             };
 

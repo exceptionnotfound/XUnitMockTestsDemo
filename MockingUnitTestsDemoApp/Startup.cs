@@ -31,6 +31,7 @@ namespace MockingUnitTestsDemoApp
             services.AddTransient<ITeamRepository, TeamRepository>();
             services.AddTransient<IPlayerRepository, PlayerRepository>();
             services.AddTransient<IPlayerService, PlayerService>();
+            services.AddTransient<ITeamService, TeamService>();
             services.AddControllersWithViews();
         }
 
