@@ -13,7 +13,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
     public class PlayerServiceTests
     {
         [Fact]
-        public void PlayerService_GetAllPlayers_ValidCompleteLeague()
+        public void PlayerService_GetForLeague_ValidCompleteLeague()
         {
             //Arrange
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(true);
@@ -53,7 +53,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public void PlayerService_GetAllPlayers_ValidLeagueNoPlayers()
+        public void PlayerService_GetForLeague_ValidLeagueNoPlayers()
         {
             //Arrange
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(true);
@@ -85,7 +85,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public void PlayerService_GetAllPlayers_ValidLeagueNoTeams()
+        public void PlayerService_GetForLeague_ValidLeagueNoTeams()
         {
             //Arrange
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(true);
@@ -107,7 +107,7 @@ namespace MockingUnitTestsDemoApp.Tests.Services
         }
 
         [Fact]
-        public void PlayerService_GetAllPlayers_InvalidLeague()
+        public void PlayerService_GetForLeague_InvalidLeague()
         {
             //Arrange
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(false);
