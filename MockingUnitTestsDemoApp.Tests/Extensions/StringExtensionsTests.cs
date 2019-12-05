@@ -29,5 +29,16 @@ namespace MockingUnitTestsDemoApp.Tests.Extensions
             var result = first.CIEquals(second);
             Assert.False(result);
         }
+
+        [Theory]
+        [InlineData(null, "")]
+        [InlineData("", null)]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        public void StringExtensions_CIEquals_NullEqualsEmpty_TrueCases(string first, string second)
+        {
+            var result = first.CIEquals(second, CIEqualsOption.NullEqualsEmpty);
+            Assert.True(result);
+        }
     }
 }
