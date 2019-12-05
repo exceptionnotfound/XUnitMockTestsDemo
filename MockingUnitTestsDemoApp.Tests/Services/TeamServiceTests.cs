@@ -13,30 +13,30 @@ namespace MockingUnitTestsDemoApp.Tests.Services
 {
     public class TeamServiceTests
     {
-[Fact]
-public void TeamService_Search_OlderThan_Valid()
-{
-    var mockTeams = GetMockTeams();
+        [Fact]
+        public void TeamService_Search_OlderThan_Valid()
+        {
+            var mockTeams = GetMockTeams();
 
-    var mockTeamRepo = new MockTeamRepository().MockGetForLeague(mockTeams);
-    var mockLeagueRepo = new MockLeagueRepository().MockIsValid(true);
+            var mockTeamRepo = new MockTeamRepository().MockGetForLeague(mockTeams);
+            var mockLeagueRepo = new MockLeagueRepository().MockIsValid(true);
 
-    var teamService = new TeamService(mockTeamRepo.Object, mockLeagueRepo.Object);
+            var teamService = new TeamService(mockTeamRepo.Object, mockLeagueRepo.Object);
 
-    var searchParams = new TeamSearch()
-    {
-        LeagueID = 1,
-        FoundingDate = new DateTime(2013, 1, 1),
-        Direction = SearchDateDirection.OlderThan
-    };
+            var searchParams = new TeamSearch()
+            {
+                LeagueID = 1,
+                FoundingDate = new DateTime(2013, 1, 1),
+                Direction = SearchDateDirection.OlderThan
+            };
 
-    //Act
-    var results = teamService.Search(searchParams);
+            //Act
+            var results = teamService.Search(searchParams);
 
-    Assert.NotEmpty(results);
-    mockLeagueRepo.VerifyIsValid(Times.Once());
-    mockTeamRepo.VerifyGetForLeague(Times.Once());
-}
+            Assert.NotEmpty(results);
+            mockLeagueRepo.VerifyIsValid(Times.Once());
+            mockTeamRepo.VerifyGetForLeague(Times.Once());
+        }
 
         [Fact]
         public void TeamService_Search_NewerThan_Valid()
