@@ -113,8 +113,8 @@ namespace MockingUnitTestsDemoApp.Tests.Services
             var mockLeagueRepo = new MockLeagueRepository().MockIsValid(false);
 
             var playerService = new PlayerService(new MockPlayerRepository().Object,
-                                                  new MockTeamRepository().Object,
-                                                  mockLeagueRepo.Object);
+                                                    new MockTeamRepository().Object,
+                                                    mockLeagueRepo.Object);
 
             //Act
             var allPlayers = playerService.GetForLeague(1);
